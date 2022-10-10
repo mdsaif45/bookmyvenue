@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+</head>
+
+<body>
+    <section>
+        <section class="advt-post bg-gray py-5">
+            <div class="container">
+                <form method="post" th:action="@{reviewdetails?venueId={id}(id=${venueId})}">
+                    <!-- Post Your ad start -->
+                    <fieldset class="border border-gary px-3 px-md-4 py-4 mb-5">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h3>Booking Details</h3>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h6 class="font-weight-bold pt-4 pb-1">Your Event:</h6>
+                                <!-- <p class="alert alert-warning" role="alert" th:if="${msg != null}" th:text="${msg}"></p> -->
+                                <select name="eventType" class="form-control w-100 bg-white" id="inputGroupSelect" required>
+                                    <option>Wedding</option>
+                                    <option>Engagement</option>
+                                    <option>Reception</option>
+                                    <option>Anniversary</option>
+                                    <option>Conference</option>
+                                    <option>Exhibition</option>
+                                    <option>Bachelor Party</option>
+                                    <option>Birthday Party</option>
+                                </select>
+                                <div class="price">
+                                    <h6 class="font-weight-bold pt-4 pb-1">Event Date:</h6>
+                                    <div class="row px-3">
+                                        <div class="col-lg-4 rounded my-2 px-0">
+                                            <label for="from">From</label>
+                                            <input type="date" name="eventFrom" class="form-control bg-white"
+                                                placeholder="from" id="from">
+                                        </div>
+                                        <div class="col-lg-4 rounded my-2 px-0">
+                                            <label for="to">To</label>
+                                            <input type="date" name="eventTo" class="form-control bg-white"
+                                                placeholder="to" id="to">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h6 class="font-weight-bold pt-4 pb-1">Number of Guest:</h6>
+                                <input type="number" name="capacity" class="form-control bg-white"
+                                    placeholder="No. of guest" required>
+
+                                <h6 class="font-weight-bold pt-4 pb-1">Meal Type:</h6>
+                                <div class="row px-3">
+                                    <div class="col-lg-4 mr-lg-4 my-2 pt-2 pb-1 rounded bg-white">
+                                        <input type="radio" name="mealType" value="Veg" id="Veg" required>
+                                        <label for="Veg" class="py-2">Veg Meal</label>
+                                    </div>
+                                    <div class="col-lg-4 mr-lg-4 my-2 pt-2 pb-1 rounded bg-white ">
+                                        <input type="radio" name="mealType" value="Non-Veg" id="Non-Veg" required>
+                                        <label for="Non-Veg" class="py-2">Non-Veg Meal</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                    <!-- Post Your ad end -->
+
+
+                    <!-- seller-information start -->
+                    <fieldset class="border px-3 px-md-4 py-4 my-5 seller-information bg-gray">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h3>Customer Information</h3>
+                            </div>
+                            <div class="col-lg-6">
+                                <h6 class="font-weight-bold pt-4 pb-1">Contact Name:</h6>
+                                <input type="text" th:value="${user.firstName} + ' ' + ${user.lastName}"
+                                    class="form-control bg-white" required>
+                                <h6 class="font-weight-bold pt-4 pb-1">Contact Number:</h6>
+                                <input type="text" th:value="${user.phoneNo}" class="form-control bg-white" required>
+                            </div>
+                            <div class="col-lg-6">
+                                <h6 class="font-weight-bold pt-4 pb-1">Contact Email:</h6>
+                                <input type="email" name="emailId" th:value="${user.emailId}" class="form-control bg-white " required>
+                                <h6 class="font-weight-bold pt-4 pb-1">Address:</h6>
+                                <input type="text" placeholder="Your address" class="form-control bg-white" required>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- seller-information end-->
+
+                    <!-- submit button -->
+                    <div class="checkbox d-inline-flex">
+                        <!-- <input type="checkbox" id="terms-&-condition" class="mt-1">
+                        <label for="terms-&-condition" class="ml-2">By click you must agree with our
+                            <span> <a class="text-success" href="#">Terms & Condition and Posting
+                                    Rules.</a></span>
+                        </label> -->
+                    </div>
+                    <button type="submit" class="btn btn-primary d-block mt-2">Book Now</button>
+                </form>
+            </div>
+        </section>
+    </section>
+</body>
+
+</html>

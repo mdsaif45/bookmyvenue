@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"> 
+    <link href="assets/img/favicon.png" rel="shortcut icon" />
+    <style>
+      .login-box{
+          width: 500px;
+          /* border: 1px solid black; */
+          margin: auto;
+      }
+      input{
+          width: 100%;
+      }
+      button{
+        margin: 15px 0 15px 0;
+      }
+    </style>
+
+    <title>Sign In - Admin Controller</title>
+</head>
+<body>
+    <section>
+
+      <h1 style="text-align: center; margin: 200px 0 35px 0;">Admin Login</h1>
+      <div class="login-box">
+        <form method="post" th:action="@{/alogin}">
+          <div class="form-group">
+            <p class="alert alert-warning" role="alert" th:if="${msg != null}" th:text="${msg}"></p><br>
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="emailId" required>
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+          </div>
+          <!-- <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div> -->
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+        <!-- <a href="/register">register</a> -->
+      </div>
+    </section>
+</body>
+</html>

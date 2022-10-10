@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="https://www.thymeleaf.org" 
+th:fragment="layout(content)">
+<head>
+
+  <!-- ** Basic Page Needs ** -->
+  <meta charset="utf-8">
+  <title th:text="${title}">Base html</title>
+
+  <!-- ** Mobile Specific Metas ** -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Agency HTML Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Classified Marketplace Template v1.0">
+
+  <!-- favicon -->
+  <link href="images/favicon.png" rel="shortcut icon">
+
+  <!-- 
+  Essential stylesheets
+  =====================================-->
+  <link href="plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="plugins/bootstrap/bootstrap-slider.css" rel="stylesheet">
+  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="plugins/slick/slick.css" rel="stylesheet">
+  <link href="plugins/slick/slick-theme.css" rel="stylesheet">
+  <link href="plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+  
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
+</head>
+
+<body class="body-wrapper">
+<style>
+  *{
+    --blue: #007bff;
+  }
+</style>
+
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-expand-lg navbar-white navigation">
+					<a class="navbar-brand" href="#">
+						<!-- <img src="images/logo.png" alt=""> -->
+            <h2 style="font-family: 'Libre Baskerville', serif;">Book My Venue</h2>
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto main-nav ">
+							<li class="nav-item active">
+								<a class="nav-link" th:href="@{/}">Home</a>
+							</li>
+							<li class="nav-item dropdown dropdown-slide @@dashboard">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#!" style="color: #007bff;">Venues<span><i class="fa fa-angle-down"></i></span>
+								</a>
+
+								<!-- Dropdown list -->
+								<ul class="dropdown-menu">
+									<!-- <li><a class="dropdown-item @@dashboardPage" href="#">Options</a></li> -->
+									
+									<li class="dropdown dropdown-submenu dropright">
+										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Location</a>
+					
+										<ul class="dropdown-menu" aria-labelledby="dropdown0501">
+											<li><a class="dropdown-item" th:href="@{venuecity?venueCity=Pune}">Pune</a></li>
+											<li><a class="dropdown-item" th:href="@{venuecity?venueCity=Kolhapur}">Kolhapur</a></li>
+											<li><a class="dropdown-item" th:href="@{venuecity?venueCity=Mumbai}">Mumbai</a></li>
+											<li><a class="dropdown-item" th:href="@{venuecity?venueCity=Hyderabad}">Hyderabad</a></li>
+											<li><a class="dropdown-item" th:href="@{venuecity?venueCity=Indore}">Indore</a></li>
+											<li><a class="dropdown-item" th:href="@{venuecity?venueCity=Bhopal}">Bhopal</a></li>
+										</ul>
+									</li>
+                  <li class="dropdown dropdown-submenu dropright">
+										<a class="dropdown-item dropdown-toggle " href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Venue Type</a>
+					
+										<ul class="dropdown-menu" aria-labelledby="dropdown0501">
+											<li><a class="dropdown-item" th:href="@{venue?venueType=Hotel}">Hotel</a></li>
+											<li><a class="dropdown-item" th:href="@{venue?venueType=Resort}">Resort</a></li>
+											<li><a class="dropdown-item" th:href="@{venue?venueType=Farm house}">Farm house</a></li>
+											<li><a class="dropdown-item" th:href="@{venue?venueType=Restaurant}">Restaurant</a></li>
+											<li><a class="dropdown-item" th:href="@{venue?venueType=Banquet Hall}">Banquet Hall</a></li>
+										</ul>
+									</li>
+								</ul>
+
+                
+							</li>
+              <li class="nav-item active">
+								<a class="nav-link" th:href="@{contact}">Contact</a>
+							</li>
+              <li class="nav-item active">
+								<a class="nav-link" th:href="@{about}">About Us</a>
+							</li>
+							
+							<li class="nav-item dropdown dropdown-slide @@listing" th:if="${session.name}">
+								<a class="nav-link dropdown-toggle" href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #007bff;">
+									My Account <span th:if="${session.name != null}" th:text="' ('+${session.name}+')'"></span>
+                  <span><i class="fa fa-angle-down"></i></span>
+								</a>
+								<!-- Dropdown list -->
+								<ul class="dropdown-menu" >
+									<li><a class="dropdown-item @@category" th:href="@{bookinghistory}">Booking History</a></li>
+									<li><a class="dropdown-item @@category"  th:href="@{reset}">setting</a></li>
+									<li><a class="dropdown-item @@category"  th:href="@{logout}">logout</a></li>
+									
+								</ul>
+							</li>
+						</ul>
+						<ul class="navbar-nav ml-auto mt-10">
+              
+              <li class="nav-item" th:if="${session.name}==null">
+                <a class="nav-link login-button" th:href="@{loginpage}">Login</a>
+              </li>
+
+				
+							<li class="nav-item">
+								<a class="nav-link text-white add-button" th:href="@{signin}">Admin</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+
+
+
+<div th:replace="${content}"></div>
+
+<!--============================
+=            Footer            =
+=============================-->
+
+<footer class="footer section section-sm">
+  <!-- Container Start -->
+  <div class="container">
+    <div class="row" style="justify-content: space-between;">
+      <div class="col-lg-3 col-md-7 offset-md-1 offset-lg-0 mb-4 mb-lg-0">
+        <!-- About -->
+        <div class="block about">
+          
+          <!-- footer logo -->
+          <h1 class="text-white"> 𝐵𝑜𝑜𝓀𝑀𝓎𝒱𝑒𝓃𝓊𝑒 </h1>
+          <!-- description -->
+          <h4>" We Create. You Celebrate..."</h4>
+          <!-- description -->
+          <p class="alt-color"></p>
+        </div>
+      </div>
+      <!-- Link list -->
+      <div class="col-lg-2 offset-lg-1 col-md-3 col-6 mb-4 mb-lg-0">
+        <div class="block">
+          <h4>Our Services</h4>
+          <ul>
+            <p> All Event Vendors</p>
+            <p> Catering Services</p>
+            <p> Wedding Planning</p>
+            <p> Event Planning</p>
+            <p> Birthday Planning</p>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-3 offset-md-1 offset-lg-0 col-6 mb-4 mb-md-0">
+        <div class="block">
+          <h4>Site Pages</h4>
+          <ul>
+            <li><a href="#">Venue</a></li>
+            <li><a href="#">Venew Details</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Contacts Us</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Container End -->
+</footer>
+<!-- Footer Bottom -->
+<footer class="footer-bottom">
+  <!-- Container Start -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 text-center text-lg-left mb-3 mb-lg-0">
+        <!-- Copyright -->
+        <div class="copyright">
+          <p>Copyright &copy; <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script>. Book My Venue <a class="text-white" href="#"></a></p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <!-- Social Icons -->
+        <ul class="social-media-icons text-center text-lg-right">
+          <li><a class="fa fa-facebook" href="https://www.facebook.com/mdsaif45" target="_blank"></a></li>
+          <li><a class="fa fa-twitter" href="https://twitter.com/mdsaif_3" target="_blank"></a></li>
+          <li><a class="fa fa-pinterest-p" href="https://in.pinterest.com/mdsaif_3" target="_blank"></a></li>
+          <li><a class="fa fa-github-alt" href="https://github.com/mdsaif45" target="_blank"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Container End -->
+  <!-- To Top -->
+  <div class="scroll-top-to">
+    <i class="fa fa-angle-up"></i>
+  </div>
+</footer>
+
+
+
+
+<!-- 
+Essential Scripts
+=====================================-->
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/popper.min.js"></script>
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/bootstrap/bootstrap-slider.js"></script>
+<script src="plugins/tether/js/tether.min.js"></script>
+<script src="plugins/raty/jquery.raty-fa.js"></script>
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+<script src="plugins/google-map/map.js" defer></script>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
+
+
+

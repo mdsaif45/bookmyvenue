@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+                th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+</head>
+<body>
+    <section class="advt-post bg-gray py-5">
+        <div class="container">
+            
+          <form th:action="@{payment}" method="POST">
+            
+            <!-- Post Your ad start -->
+            <fieldset class="border border-gary px-3 px-md-4 py-4 mb-5">
+              <div class="row ml-3 mr-3">
+                <div class="col-lg-12">
+                  <h3  class="font-weight-bold">confirmation Booking Details</h3>
+                </div>
+                <table class="table table-bordered product-table">
+                    <tbody>
+                      <tr>
+                        <td class="font-weight-bold">Venue Name</td>
+                        <td class="bg-white" th:text="${venueName}"></td>
+                      </tr>
+                      <tr>
+                        <td class="font-weight-bold">Maximum Guest</td>
+                        <input type="hidden" name="venueId" th:value="${venue.venueId}">
+                        <td class="bg-white" name="capacity" th:text="${Booking.capacity}"></td>
+                      </tr>
+                      <tr>
+                        <td class="font-weight-bold">Booking From</td>
+                        <td class="bg-white" name="eventFrom" th:text="${Booking.eventFrom}"></td>
+                      </tr>
+                      <tr>
+                        <td class="font-weight-bold">Booking To</td>
+                        <td class="bg-white" name="eventTo" th:text="${Booking.eventTo}"></td>
+                      </tr>
+                      <tr>
+                        <td class="font-weight-bold" >Occassion </td>
+                        <td class="bg-white" name="eventType" th:text="${Booking.eventType}"></td>
+                      </tr>
+                      <tr>
+                        <td class="font-weight-bold">Meal Type</td>
+                        <td class="bg-white" name="mealType" th:text="${Booking.mealType}"></td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+              </div>
+            </fieldset>
+            <!-- Post Your ad end -->
+
+      
+            <!-- User-information start -->
+            <fieldset class="border bg-white px-3 px-md-4 py-4 my-5 seller-information bg-gray">
+                <div class="row ml-3 mr-3">
+                  <div class="col-lg-12">
+                    <h3>User Information</h3>
+                  </div>
+
+                  <table class="table table-bordered product-table">
+                    <tbody>
+                      <tr>
+                        <td class="font-weight-bold">User Name</td>
+                        <td class="bg-white" th:text="${user.firstName}+' '+${user.lastName}"></td>
+                        <input type="hidden" name="CUST_ID" th:value="${user.userId}">
+                        
+                      </tr>
+                      <tr>
+                        <td class="font-weight-bold">Contact</td>
+                        <td class="bg-white" th:text="${user.phoneNo}"></td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                  
+                </div>
+              </fieldset>
+              <!-- seller-information end-->
+
+
+            
+            <!-- ad-feature start -->
+            <fieldset class="border bg-white px-3 px-md-4 py-4 my-5 ad-feature bg-gray">
+              <div class="row ml-3 mr-3">
+                <h2 th:text="'Billing Amount (incl. Meal) : '+${totalPrice}"></h2>
+                <input type="hidden" name="TXN_AMOUNT" th:value="${totalPrice}">
+              </div>
+            </fieldset>
+            <!-- ad-feature start -->
+      
+            <!-- submit button -->
+            <!-- <div class="checkbox d-inline-flex">
+              <input type="checkbox" id="terms-&-condition" class="mt-1">
+              <label for="terms-&-condition" class="ml-2">By click you must agree with our
+                <span> <a class="text-success" href="terms-condition.html">Terms & Condition and Posting
+                    Rules.</a></span>
+              </label>
+            </div> -->
+            <button type="submit" class="btn btn-primary d-block mt-2">Payment</button>
+          </form>
+        </div>
+      </section>
+</body>
+</html>

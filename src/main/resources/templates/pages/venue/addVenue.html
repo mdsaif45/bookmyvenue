@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head th:insert="include/mateheader.html">
+     
+  
+</head>
+<title>Add Venue</title>
+<body>
+    
+    <div th:insert="include/nav">  </div>
+    <hr>
+
+    <br><br>
+    <div style="width: 80%; margin: auto ;">
+        <h1>Add Venue</h1>
+    
+        <div class="row">
+            <form method="post" th:action="@{/addVenue}" enctype="multipart/form-data" class="col s12" >
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="venueName" type="text" class="validate" name="venueName">
+                  <label for="venueName">Venue Name</label>
+                </div>
+              </div>  
+              <div class="row">  
+                <div class="input-field col s12">
+                  <input id="venueOverview" type="text" class="validate" name="venueOverview">
+                  <label for="venueOverview">Venue Overview</label>
+                </div>
+              </div>              
+              <div class="row">  
+                <div class="input-field col s12">
+                  <input id="eventList" type="text" class="validate" name="eventList">
+                  <label for="eventList">eventList</label>
+                </div>
+              </div>
+              <div class="row">  
+                <div class="input-field col s12">
+                  <input id="amenities" type="text" class="validate" name="amenities">
+                  <label for="amenities">Venue amenities</label>
+                </div>
+              </div>
+              <div class="row">  
+                <div class="input-field col s12">
+                  <input id="maxGuest" type="number" class="validate" name="maxGuest">
+                  <label for="maxGuest">Venue maxGuest</label>
+                </div>
+              </div>
+              <div class="row">  
+                <div class="input-field col s12">
+                  <input id="price" type="number" class="validate" name="price">
+                  <label for="price">Venue price</label>
+                </div>
+              </div>
+              
+              <div class="row">  
+                <div class="input-field col s12">
+                  <input id="emailId" type="email" class="validate" name="emailId">
+                  <label for="emailId">Venue emailId</label>
+                </div>
+              </div>
+              
+              <div class="row">  
+                <div class="input-field col s12">
+                  <input id="contact" type="number" class="validate" name="contact">
+                  <label for="contact">Venue contact</label>
+                </div>
+              </div>
+              
+              <div class="row">  
+                <div class="input-field col s12">
+                  <input id="Address" type="text" class="validate" name="Address">
+                  <label for="Address">Venue Address</label>
+                </div>
+              </div>
+              
+              <div class="row">  
+                <div class="input-field col s12">
+                  <input id="map" type="text" class="validate" name="map">
+                  <label for="map">Venue map</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                    <input type="file" name="image" accept="image/*" class="form-control-file">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Save Venue</button>
+
+            </form>
+            <span th:if="${msg != null}" th:text="${msg}"></span>
+            <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+          </div>
+
+    </div>
+
+
+
+ 	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+<!-- <div class="form-group">
+    <label for="exampleFormControlFile1">Example file input</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div> -->
+
+
+
+
+
+<template>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous">    
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+          
+  <!-- <link rel="shortcut icon" href="https://assets.pokemon.com/static2/_ui/img/favicon.ico">         -->
+  <link rel="shortcut icon" href="https://icons.iconarchive.com/icons/chrisbanks2/cold-fusion-hd/32/pokemon-icon.png">   
+</template>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Venue</title>
+</head>
+<body>
+    <section>
+        <div class="row" style="justify-content: center !important;
+                                flex-direction: column;
+                                align-items: center;">
+            <h2>Edit Venue</h2>
+            <div class="col-lg-6">
+                <div class="card card-default">
+                    <div class="card-header card-header-border-bottom">
+                        <h2>Venue Details</h2>
+                    </div>
+        
+                    <div class="card-body">
+                        <form method="post" 
+                                th:object="${venue}"
+                                th:action="@{/addVenueDetails}" 
+                                enctype="multipart/form-data">
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlInput1">Venue Name</label> -->
+                                <input name="venueName" th:value="${venue.venueName}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Venue Name" required>
+                                <!-- <span class="mt-2 d-block">We'll never share your email with anyone else.</span> -->
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlSelect12">Venue Type</label> -->
+                                <select class="form-control" id="exampleFormControlSelect12" name="venueType">
+                                    <option>Banquet Hall</option>
+                                    <option>Hotel</option>
+                                    <option>Resort</option>
+                                    <option>Restaurant</option>
+                                    <option>Gaming Zone</option>
+                                    <option>Villa</option>
+                                    <option>Farm House</option>
+                                    <option>Roof Top Restaurant</option>
+                                    <option>Conference Center</option>
+                                    <option>Auditorium</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlTextarea1">Overview</label> -->
+                                <textarea name="overview" th:value="${venue.venueName}" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Overview" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlTextarea1">Amenities</label> -->
+                                <textarea name="amenities" th:value="${venue.amenities}" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Amenities" required></textarea>
+                            </div>
+                             <div class="form-group">
+                                <!-- <label for="exampleFormControlInput1">Capacity</label> -->
+                                <input name="capacity" th:value="${venue.capacity}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Capacity" required>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlTextarea1">Event List</label> -->
+                                <textarea name="eventList" th:value="${venue.eventList}" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Event List" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlInput1">Venue Price</label> -->
+                                <input name="venuePrice" th:value="${venue.venuePrice}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Venue Price" required>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlInput1">Veg Meal Price</label> -->
+                                <input name="vegPrice" th:value="${venue.vegPrice}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Veg Meal Price" required>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlInput1">Non-Veg Meal Price</label> -->
+                                <input name="nonvegPrice" th:value="${venue.nonvegPrice}" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Non-Veg Meal Price" required>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlInput1">Venue Owner Name</label> -->
+                                <input name="venueOwner" th:value="${venue.venueOwner}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Venue Owner Name" required>
+                            </div> 
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlInput1">Venue Email</label> -->
+                                <input name="emailId" th:value="${venue.emailId}" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Venue Email" required>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlInput1">Phone Number</label> -->
+                                <input name="phoneNo" th:value="${venue.phoneNo}" type="number"  class="form-control" id="exampleFormControlInput1" placeholder="Phone Number" required>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlInput1">Address</label> -->
+                                <input name="Address" th:value="${venue.Address}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Address" required>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="exampleFormControlInput1">City</label> -->
+                                <input name="city" th:value="${venue.city}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="City" required>
+                            </div>
+
+        
+                            <div class="form-group">
+                                <label for="image">Venue Thumbnail</label>
+                                <input type="file" name="image" th:value="${venue.thumbnail}"  class="form-control-file" id="image" accept="image/png, image/gif, image/jpeg" required>
+                            </div>
+        
+                            <div class="form-footer pt-4 pt-5 mt-4 border-top">
+                                <button type="submit" class="btn btn-primary btn-default">Submit</button>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        
+
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+                th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+</head>
+<body>
+    <section style="min-height: 800px;">
+        <h2>Booking Details</h2>
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-default">
+                    <div class="card-header card-header-border-bottom d-flex justify-content-between">
+                        <h2></h2>
+                    </div>
+        
+                    <div class="card-body">
+                        <div class="hoverable-data-table">
+                            <table id="hoverable-data-table" class="table table-hover nowrap" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Booking ID</th>
+                                        <th scope="col">Venue ID</th>
+                                        <!-- <th scope="col">Venue Name</th> -->
+                                        <th scope="col">Event Type</th>
+                                        <th scope="col">capacity</th>
+                                        <th scope="col">Meal Type</th>
+                                        <th scope="col">Event From</th>
+                                        <th scope="col">Event To</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Booking Time</th>
+                                        <th scope="col">Transaction Id</th>
+                                        <th scope="col">Transaction Date</th>
+
+                                    </tr>
+                                </thead>
+        
+                                <tbody>
+                                    <tr th:each="b : ${booking}">
+                                        <th th:text="${b.orderId}">1</th>
+                                        <td th:text="${b.venueId}"></td>
+                                        <!-- <td th:text="${v.venueName}"></td> -->
+                                        <td th:text="${b.eventType}"></td>
+                                        <td th:text="${b.capacity}"></td>
+                                        <td th:text="${b.mealType}"></td>
+                                        <td th:text="${b.eventFrom}"></td>
+                                        <td th:text="${b.eventTo}"></td>
+                                        <td th:text="${b.status}"></td>
+                                        <td th:text="${b.bookingTime}"></td>
+                                        <td th:text="${b.transactionId}"></td>
+                                        <td th:text="${b.transactionDate}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

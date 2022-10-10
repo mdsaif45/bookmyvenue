@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.com ">
+<head th:insert="include/bootheader.html">
+    <title>Register</title>
+</head>
+<style>
+    .register-box{
+        width: 500px;
+        border: 0px solid black;
+        margin: auto;
+    }
+    input{
+        width: 100%;
+    }
+    a{
+        margin-top: 30px;
+        text-decoration: dotted;
+    }
+    #submit{
+      margin: 15px 0 15px 0;
+        }
+</style>
+
+<body>
+<h1 style="text-align: center; margin: 200px 0 35px 0;">Registeration</h1>
+<form action="/reg" method="post" class="register-box">
+    <p style="text-align: center;" th:if="${msg != null}" th:text="${msg}"></p><br>
+          
+    <p>First Name</p>
+    <input type="text" name="firstName" id="fname"/>
+    <p>Last Name</p>
+    <input type="text" name="lastName" id="lname"/>
+    <p>Email</p>
+    <input type="email" name="emailId" id="email"/>
+    <p>Phone Number</p>
+    <input type="number" name="phoneNo" id="phone"/>
+    <p>Password</p>
+    <input type="text" name="password" id="password"/>
+    <p>Confirm Password</p>
+    <input type="text" name="confirmPassword" id="confirmPassword"/>
+
+    <input type="submit" class="btn btn-primary" name="submit" id="submit"/>
+
+    <a style="margin-top: 30px;" href="/login">login</a>
+</form>
+
+</body>
+</html>

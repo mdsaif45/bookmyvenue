@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Venue</title>
+</head>
+<body>
+    <section>
+        <h2>List Venue</h2>
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-default">
+                    <!-- <div class="card-header card-header-border-bottom d-flex justify-content-between">
+                        <h2></h2>
+                    </div> -->
+        
+                    <div class="card-body">
+                        <div class="hoverable-data-table">
+                            <table id="hoverable-data-table" class="table table-hover nowrap" >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Venue ID</th>
+                                        <th scope="col">Venue Name</th>
+                                        <th scope="col">Venue Type</th>
+                                        <th scope="col">Amenities</th>
+                                        <th scope="col">Capacity</th>
+                                        <th scope="col">EventList</th>
+                                        <th scope="col">VegMeal Price</th>
+                                        <th scope="col">NonVeg Price</th>
+                                        <th scope="col">Venue Price</th>
+                                        <th scope="col">Venue Ower</th>
+                                        <th scope="col">Email ID</th>
+                                        <th scope="col">Phone Number</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">City</th>
+                                        <th scope="col">Added on</th>
+                                        <th scope="col">Actions</th>
+
+                                    </tr>
+                                </thead>
+        
+                                <tbody>
+                                    <tr th:each="v : ${venues}">
+                                        <th th:text="${v.venueId}">1</th>
+                                        <td th:text="${v.venueName}"></td>
+                                        <td th:text="${v.venueType}"></td>
+                                        <td th:text="${v.amenities}"></td>
+                                        <td th:text="${v.capacity}"></td>
+                                        <td th:text="${v.eventList}"></td>
+                                        <td th:text="${v.vegPrice}"></td>
+                                        <td th:text="${v.nonvegPrice}"></td>
+                                        <td th:text="${v.venuePrice}"></td>
+                                        <td th:text="${v.venueOwner}"></td>
+                                        <td th:text="${v.emailId}"></td>
+                                        <td th:text="${v.phoneNo}"></td>
+                                        <td th:text="${v.Address}"></td>
+                                        <td th:text="${v.city}"></td>
+                                        <td th:text="${v.addedOn}"></td>
+                                        <td>
+                                            <!-- <a class="btn btn-sm btn-primary"
+                                            th:href="@{userEdit/{id} (id=${u.userId})}">Edit</a>  -->
+                                            <a class="btn btn-sm btn-danger"
+                                            th:href="@{venueDelete?id={id}(id=${v.venueId})}">Delete</a>
+                                            <a class="btn btn-sm btn-danger"
+                                            th:href="@{venueEdit?id={id}(id=${v.venueId})}">Edit</a>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+</body>
+</html>

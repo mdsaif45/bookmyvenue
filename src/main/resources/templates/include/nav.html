@@ -1,0 +1,58 @@
+<style>
+    body{
+        background-color: bisque;
+    }
+    a{
+        margin: 0 20px 0 20px;
+    }
+    img{
+        position: fixed;
+    }
+    .login{
+        width: 100px;
+        /* height: 40px; */
+        font-size: 18px;
+        font-family: monospace;
+        font-weight: bold;
+        /* margin: 10px auto; */
+        background-color: aquamarine;
+        position: absolute;
+        right: 10px;
+        border: 2px solid black;
+        color: black;
+        text-align: center;
+        margin-right: 100px;
+    }
+    .login:hover{
+        border: 2px solid palevioletred;
+        
+        background-color: rgb(46, 211, 156);
+        
+    }   
+    body{
+        background-color: #44406f;
+    } 
+    .navbar{
+        position: fixed;
+    }
+</style>
+<div th:fragment="navbar" class="navbar">
+    <nav style="background: #211e42 !important;">
+        
+        <img src="https://icons.iconarchive.com/icons/benschlitter/matryoshka/72/Matryoshka-Music-icon.png" alt="logo">
+        <a href="/" id="logo">
+            <img src="https://icons.iconarchive.com/icons/benschlitter/matryoshka/72/Matryoshka-Music-icon.png" alt="logo">
+        </a>
+        <span style="color: rgb(85, 185, 218); margin: 0 10px 0 100px;"><b>BookmyVenue</b> </span>
+        <a th:href="@{/}" href="/home" style="margin:0 20px 0 100px; "> Home</a>
+        <a th:href="@{/venue}" >Venues</a>
+        <a th:href="@{/venuelist}" >list venue</a>
+        <a th:href="@{/userlist}" >list users</a>
+        <a th:href="@{/adminlist}" >list admin</a>
+        <a th:href="@{/contact}">contact</a>
+        <a th:href="@{/aboutus}">AboutUs</a>
+        <span></span>
+        <a th:href="@{/login}" class="login">Login</a>
+        <a th:href="@{/adminlogin}" class="login" style="right: -90px;">Admin</a>
+    </nav>
+</div><br><br>

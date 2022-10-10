@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" 
+                th:fragment="layout(content)">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style/style.css}">
+    <title th:text="${tittle}">Base html</title>
+</head>
+
+<body>
+    <h2>This is header</h2>
+
+    <div th:replace="${content}"></div>
+
+    <h2>THis is footer</h2>
+</body>
+</html>

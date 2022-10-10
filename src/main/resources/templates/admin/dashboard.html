@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+      <h2>Hello.. <span th:text="${session.firstname}"></span></h2>
+         <!-- Top Statistics -->
+         <div class="row">
+          <div class="col-xl-3 col-sm-6">
+            <div class="card card-mini mb-4">
+              <div class="card-body">
+                <h2 class="mb-1" th:text="${userCount}">71,503</h2>
+                <p>Total Users</p>
+                <div class="chartjs-wrapper">
+                  <canvas id="barChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6">
+            <div class="card card-mini  mb-4">
+              <div class="card-body">
+                <h2 class="mb-1" th:text="${venueCount}">9,503</h2>
+                <p>Total Venue</p>
+                <div class="chartjs-wrapper">
+                  <canvas id="dual-line"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6">
+            <div class="card card-mini mb-4">
+              <div class="card-body">
+                <h2 class="mb-1" th:text="${bookingCount}">71,503</h2>
+                <p>Total Booking</p>
+                <div class="chartjs-wrapper">
+                  <canvas id="area-chart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6">
+            <div class="card card-mini mb-4">
+              <div class="card-body">
+                <h2 class="mb-1" th:text="${adminCount}">9,503</h2>
+                <p>Total Admin</p>
+                <div class="chartjs-wrapper">
+                  <canvas id="line"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>                 
+    </section>
+</body>
+</html>

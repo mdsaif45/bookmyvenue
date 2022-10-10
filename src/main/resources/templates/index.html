@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="base::layout(~{::section})"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+  </head>
+  <body>
+    <section>
+      <!--===============================
+=            Hero Area            =
+================================-->
+
+      <section class="hero-area bg-1 text-center overly">
+        <!-- Container Start -->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- Header Contetnt -->
+              <div class="content-block">
+                <h1>" We Create. You Celebrate..."</h1>
+                <p>
+                    Find & Book The Best Venues For Your Special Event <br />
+                </p>
+                <div class="short-popular-category-list text-center">
+                  <!-- <h2>Event</h2> -->
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a th:href="@{venue?venueType=Resort}"
+                        ><i class="fa fa-bed"></i> Resorts</a
+                      >
+                    </li>
+                    <li class="list-inline-item">
+                      <a th:href="@{venue?venueType=Hotel}"
+                        ><i class="fa fa-grav"></i> Hotels</a
+                      >
+                    </li>
+                    <li class="list-inline-item">
+                      <a th:href="@{venue?venueType=Farm house}"><i class="fa fa-car"></i> Farm houses</a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a th:href="@{venue?venueType=Restaurant}"
+                        ><i class="fa fa-cutlery"></i> Restaurants</a
+                      >
+                    </li>
+                    <li class="list-inline-item">
+                      <a th:href="@{venue?venueType=Banquet Hall}"
+                        ><i class="fa fa-coffee"></i> Banquet Halls</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Advance Search -->
+              <div class="advance-search">
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12 align-content-center">
+                      <form method="post" 
+                            th:object="${venue}"
+                            th:action="@{/venueList}">
+                        <div class="form-row">
+                          <div class="form-group col-xl-4 col-lg-3 col-md-6">
+                            <select class="w-100 form-control mt-lg-1 mt-md-2" name="event">
+                                <option>Oaccassion</option>
+                                <option>Wedding</option>
+                                <option>Engagement</option>
+                                <option>Reception</option>
+                                <option>Anniversary</option>
+                                <option>Conference</option>
+                                <option>Exhibition</option>
+                                <option>Bachelor Party</option>
+                                <option>Birthday Party</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-lg-3 col-md-6">
+                            <select class="w-100 form-control mt-lg-1 mt-md-2" name="venueType">
+                                <option>Venue Type</option>
+                                <option>Banquet Hall</option>
+                                <option>Hotel</option>
+                                <option>Resort</option>
+                                <option>Restaurant</option>
+                                <option>Farm House</option>
+                                <option>Conference Center</option>
+                                <option>Auditorium</option>  
+                                
+                            </select>
+                          </div>
+                          <div class="form-group col-lg-3 col-md-6">
+                            <select class="w-100 form-control mt-lg-1 mt-md-2" name="city">
+                                <option>Location</option>
+                                <option>Hyderabad</option>
+                                <option>Pune</option>
+                                <option>Mumbai</option>
+                                <option>Kolhapur</option>
+                                <option>Indore</option>
+                                <option>Bhopal</option>
+                            </select>
+                          </div>
+                          <!-- <div class="form-group col-lg-3 col-md-6">
+                            <input
+                              type="text"
+                              class="form-control my-2 my-lg-1"
+                              id="inputLocation4"
+                              placeholder="Location"
+                            />
+                          </div> -->
+                          <div
+                            class="form-group col-xl-2 col-lg-3 col-md-6 align-self-center"
+                          >
+                            <button
+                              type="submit"
+                              class="btn btn-primary active w-100"
+                            >
+                              Search Now
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Container End -->
+      </section>
+
+      <!--===========================================
+=            Popular deals section            =
+============================================-->
+
+      <section class="popular-deals section bg-gray">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-title">
+                <h2>Some Best Venues</h2>
+                <!--  -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- offer 01 -->
+            <div class="col-lg-12">
+              <div class="trending-ads-slide">
+                
+                <div class="col-sm-12 col-lg-4" th:each="bv : ${bestvenues}">   
+                  <!-- product card -->
+                  <div class="product-item bg-light">
+                    <div class="card">
+                      <div class="thumb-content">
+                        <!-- <div class="price">$200</div> -->
+                        <a th:href="@{venuedetails?id={id}(id=${bv.venueId})}">
+                          <img
+                            class="card-img-top img-fluid"
+                            th:src="${bv.thumbnail}"
+                            alt="Card image cap"
+                          />
+                        </a>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a  th:href="@{venuedetails?id={id}(id=${bv.venueId})}" th:text="${bv.venueName}">Name</a>
+                        </h4>
+                        <ul class="list-inline product-meta">
+                          <li class="list-inline-item">
+                            <a  th:href="@{venuedetails?id={id}(id=${bv.venueId})}"
+                              th:text="${bv.venueType}"><i class="fa fa-folder-open-o"></i>Type</a
+                            >
+                          </li>
+                          <li class="list-inline-item">
+                            <a th:href="@{venuedetails?id={id}(id=${bv.venueId})}"
+                              th:text="${bv.city}"><i class="fa fa-calendar"></i>City</a
+                            >
+                          </li>
+                        </ul>
+                        <!-- <p class="card-text" th:text="${bv.overview}">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Explicabo, aliquam!
+                        </p> -->
+                        <div class="product-ratings">
+                          <ul class="list-inline">
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item selected">
+                              <i class="fa fa-star"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fa fa-star"></i>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </section>
+  </body>
+</html>

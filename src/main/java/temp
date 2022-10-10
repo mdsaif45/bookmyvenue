@@ -1,0 +1,107 @@
+
+    create table users (
+       user_id bigint not null auto_increment,
+        fname varchar(255) not null,
+        lname varchar(255) not null,
+        email varchar(255) not null,
+        password varchar(255) not null,
+        phone_no bigint not null,
+        status varchar(20),
+        created_on timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        primary key (user_id)
+    ) engine=InnoDB;
+    
+    alter table users set status varchar(20) DEFAULT "No";
+
+
+    create table booking (
+       id bigint not null auto_increment,
+        bookingId bigint not null,
+        user_id bigint not null,
+        venue_id bigint not null,
+        nunberOfGuest integer not null,
+        event_date varchar(255) not null,
+        event_time varchar(255) not null,
+        event_type varchar(255) not null,
+        meal_type varchar(255) not null,
+
+        status varchar(20),
+        bookingTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        
+        FOREIGN KEY (user_id) REFERENCES users(user_id),
+        FOREIGN KEY (venue_id) REFERENCES venue(venue_id),
+        primary key (id)
+    ) engine=InnoDB;        
+
+
+    create table venue (
+       venue_id bigint not null auto_increment,
+        venue_name varchar(255) not null,
+        overview text not null,
+        amenities text not null,
+        capacity integer not null,
+        event_list varchar(255) not null,
+        response_time integer not null,
+        venue_price integer not null,
+        veg_price integer not null,
+        non_price integer not null,
+        email varchar(255) not null,
+        phone_no bigint not null,
+        address varchar(255) not null,
+        city varchar(30) not null,
+        map varchar(255) not null,
+        thumbnail varchar(255),
+        status varchar(20),
+        added_on timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        
+        primary key (venue_id)
+    ) engine=InnoDB;
+    
+    create table event_list  (
+       event_id bigint not null auto_increment,
+        venue_id bigint not null,
+        wedding boolean not null,
+        engagement boolean not null,
+        reception boolean not null,
+        anniversary boolean not null,
+        social_gathering boolean not null,
+        conference boolean not null,
+        exhibittion boolean not null,
+        bachelor_party boolean not null,
+        birthday_party boolean not null,
+
+        FOREIGN KEY (venue_id) REFERENCES venue(venue_id),
+        primary key (event_id)
+    ) engine=InnoDB ; 
+
+    create table meals_price  (
+       meal_id bigint not null auto_increment,
+        venue_id bigint not null,
+        veg integer not null,
+        non_veg integer not null,
+
+        FOREIGN KEY (venue_id) REFERENCES venue(venue_id),
+        primary key (meal_id)
+    ) engine=InnoDB ;    
+
+    create table admin  (
+       admin_id bigint not null auto_increment,
+        name varchar(255) not null,
+        username varchar(255) not null,
+        password varchar(255) not null,
+        created_on timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+        primary key (admin_id)
+    ) engine=InnoDB    ;
+
+
+    create table gallery (
+       img_id bigint not null auto_increment,
+        venue_id bigint not null,
+        imgage varchar(255) not null,
+
+        added_on timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+        FOREIGN KEY (venue_id) REFERENCES venue(venue_id),
+        primary key (img_id)
+    ) engine=InnoDB;    
