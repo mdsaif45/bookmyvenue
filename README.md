@@ -1,11 +1,6 @@
-# BookMyVenue
-
-- web application for booking venue for events like exhibition, engagement etc 
-- developed by using java spring boot framework
-
 # BookMyVenue - Venue Booking Web Application
 
-BookMyVenue is a venue booking web application developed using Java/Spring Boot framework/Hibernate with payment integration. It has many features like searching for venues with many filteration options such as location and venue, viewing venue details, booking, and receiving payment receipt through email. The application contains two modules, client and admin.
+BookMyVenue is a venue booking web application developed using Java/Spring Boot framework/Hibernate with payment integration. It has many features like searching for venues with many filteration options such as location and event, viewing venue details, booking, and receiving payment receipt through email. The application contains two modules, client and admin.
 
 ## Features
 
