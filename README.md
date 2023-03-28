@@ -72,7 +72,7 @@ To use the application, you need to have Java and MySQL installed on your system
 
 ## Contributors
 
--   MD SAIF ([@johndoe](https://github.com/mdsaif45))
+-   MD SAIF ([@mdsaif45](https://github.com/mdsaif45))
 
 ## License
 
